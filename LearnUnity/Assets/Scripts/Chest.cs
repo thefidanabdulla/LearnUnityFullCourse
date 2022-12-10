@@ -1,10 +1,16 @@
 using UnityEngine;
 
-public class Chest : Collidable
+public class Chest : Collectable
 {
-    protected override void OnCollide(Collider2D coll)
+    public Sprite emptyChest;
+    public int pesosAmount = 5;
+    protected override void OnCollect()
     {
-        //base.OnCollide(coll);
-        Debug.Log("Grant Pesos");
+        if(!collected)
+        {
+            collected = true;
+            GetComponent<SpriteRenderer>().sprite= emptyChest;
+            Debug.Log("fjsdf: " + pesosAmount);
+        }
     }
 }
